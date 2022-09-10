@@ -19,6 +19,6 @@ async def set_timetable(ctx):
         await img.save("img.jpg")
         Timetable("img.jpg").get_timetable()
     else:
-        await ctx.send(f"Looks like you haven't attached an image")
+        await ctx.send("Looks like you haven't attached an image")
     
 client.run("Private Token :D")
