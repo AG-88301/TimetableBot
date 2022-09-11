@@ -32,4 +32,4 @@ async def set_timetable(ctx, *args):
 async def timetable(ctx):
     pass
     
-client.run("MTAxODE3NzI3MDMwMjY0MjIwNg.GZ1H-q.mCEKiew8qc-SEUSEHhGYdYi5Ta5F5Lbizv6Stg")
+client.run("Secret Token")
