@@ -43,4 +43,4 @@ async def timetable(ctx: commands.Context) -> str:
 
 
     
-client.run("MTAxODE3NzI3MDMwMjY0MjIwNg.G5AhuA.mujY6uPTFCvItBRx241r8UkHJ36BCcgQRUmAUs")
+client.run("Token :D")
