@@ -1,8 +1,10 @@
 import discord
 from discord.ext import commands
 
+import io
+
 from backend import Timetable
-from db_handler import add
+from db_handler import add, get
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -14,7 +16,7 @@ async def on_ready():
     print("ready")
     
 @client.command()
-async def set_timetable(ctx, *args):
+async def set_timetable(ctx: commands.Context, *args) -> None:
     if len(args) != 0:
         ttbl = Timetable()
         add(str(ctx.message.author), ["timetable", str(ttbl.compress(ttbl.expand(args)))])
@@ -29,7 +31,16 @@ async def set_timetable(ctx, *args):
         await ctx.send("Looks like you haven't attached an image")
         
 @client.command()
-async def timetable(ctx):
-    pass
+async def timetable(ctx: commands.Context) -> str:
+    ttbl = get(str(ctx.message.author), "timetable")
+    ttbl = Timetable().expand(ttbl)
     
-client.run("Secret Token")
+    image = Timetable().table_img(ttbl)
+    with io.BytesIO() as image_binary:
+        image.save(image_binary, 'PNG')
+        image_binary.seek(0)
+        await ctx.send(file=discord.File(fp=image_binary, filename='image.png'))
+
+
+    
+client.run("MTAxODE3NzI3MDMwMjY0MjIwNg.G5AhuA.mujY6uPTFCvItBRx241r8UkHJ36BCcgQRUmAUs")

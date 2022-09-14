@@ -1,6 +1,6 @@
 import json
 
-def add(usr, pars):
+def add(usr: str, pars: list) -> None:
     with open('db.json', "r") as f:
         db = json.load(f)
 
@@ -12,3 +12,8 @@ def add(usr, pars):
 
     with open('db.json', "w") as f:
         json.dump(db, f)
+        
+def get(usr: str, attr: str) -> str:
+    with open('db.json', 'r') as f:
+        data = json.load(f)
+    return data[usr][attr]
