@@ -61,11 +61,11 @@ client.remove_command('help')
 @client.command()
 async def help(ctx: commands.Context) -> None:
     embed = discord.Embed(title=f"__**Help**__", color=0x03f8fc)
-    embed.add_field(name='?timetable', value='Shows Timetable', inline=False)
-    embed.add_field(name='?set_timetable [timetable]', value='Sets the timetable\n + timetable -> text input with subjects separated by "," and days separated by "|"', inline=False)
-    embed.add_field(name='?timetable_color [r] [g] [b]', value='Sets the colour of the timetable\n + r -> sets red value of desired colour\n + g -> sets green value of desired colour\n + b -> sets blue value of desired colour', inline=False)
-    embed.add_field(name='?help', value='Displays this message', inline=False)
+    embed.add_field(name='__?timetable [user (optional)]__', value='**Shows Timetable**\n ↳ user ⇢ _the user whose timetable you want to see. Leave blank if you want to see your own_', inline=False)
+    embed.add_field(name='__?set_timetable [timetable]__', value='**Sets the timetable**\n ↳ timetable ⇢ _text input with subjects separated by "," and days separated by "|"_', inline=False)
+    embed.add_field(name='__?timetable_color [r] [g] [b]__', value='**Sets the colour of the timetable**\n ↳ r ⇢ _sets red value of desired colour_\n ↳ g ⇢ _sets green value of desired colour_\n ↳ b ⇢ _sets blue value of desired colour_', inline=False)
+    embed.add_field(name='__?help__', value='**Displays this message**', inline=False)
     
     await ctx.send(embed=embed)
 
-client.run("TOKEN :D")
+client.run("Token :P")
